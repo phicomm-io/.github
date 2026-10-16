@@ -22,7 +22,7 @@ TC1 仅支持 **A1 硬件版本**，不支持 A2；它与 **A1 空气净化器**
 
 ## 项目路线图
 
-围绕四个方向持续完善，任务进度见[公开 Project 路线图](https://github.com/orgs/phicomm-io/projects/4)。
+围绕四个方向持续完善，任务进度见[公开 Project 路线图](https://github.com/orgs/phicomm-io/projects/3)。
 
 ```mermaid
 flowchart TB

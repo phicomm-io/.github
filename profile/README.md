@@ -22,7 +22,7 @@ TC1 仅支持 **A1 硬件版本**，不支持 A2；它与 **A1 空气净化器**
 
 ## 项目路线图
 
-围绕四个方向持续完善，任务进度与讨论集中在[组织 Project 路线图](https://github.com/orgs/phicomm-io/projects/3)（目前需要访问权限）。
+围绕四个方向持续完善，任务进度见[公开 Project 路线图](https://github.com/orgs/phicomm-io/projects/4)。
 
 ```mermaid
 flowchart TB
@@ -40,7 +40,7 @@ flowchart TB
     E1 --> E2[继续：自动化验收、贡献规范与文档完善]
 ```
 
-示意按方向展示，不承诺交付日期；具体任务状态以 Project 为准，软件交付与实机验收分别跟踪。
+示意按方向展示，不承诺交付日期；具体任务状态以公开 Project 为准，软件交付与实机验收分别跟踪。也可阅读[文字版路线图](https://github.com/phicomm-io/.github/blob/main/profile/ROADMAP.md)。
 
 ## 项目组成
 

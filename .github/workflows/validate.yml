@@ -1,0 +1,26 @@
+name: Validate contributions
+on:
+  push:
+    branches: [main, dev, 'feature/**', 'hotfix/**']
+  pull_request:
+    branches: [main, dev]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check branch workflow
+        run: python3 tools/check_branch_policy.py
+      - name: Whitespace and Python syntax
+        run: |
+          git diff --check HEAD^ HEAD
+          python3 -m compileall -q tools

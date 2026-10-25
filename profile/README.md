@@ -1,58 +1,78 @@
-# 斐讯设备社区项目
+# IoTCloud 社区项目
 
-为已淘汰或原厂云服务停止的 IoT 设备维护社区固件、操作网页与管理平台。目前支持斐讯 **TC1 智能排插、M1 空气检测仪、A1 空气净化器**及 **DAIKIN 大金空气检测仪**，让设备在本地网络继续使用，也能接入 MQTT、Home Assistant 和 IotCloud。
+[English](https://github.com/phicomm-io/.github/blob/main/profile/README.en.md)
 
-**[项目主页](https://phicomm-io.github.io/) · [固件下载](https://phicomm-io.github.io/#releases) · [使用文档](https://phicomm-io.github.io/#docs) · [在线演示](https://phicomm-io.github.io/#demos)**
+让 TC1 智能排插、M1 空气检测仪、A1 空气净化器和 DAIKIN 大金空气检测仪继续好用：本地网页控制，接入 MQTT、Home Assistant，或使用 IoTCloud 集中管理。
 
-## 支持的设备
+**[设备与功能][devices] · [安装升级][install] · [常见问题][faq] · [参与开发][develop]**
 
-| 设备 | 主要功能 | 刷机与使用 |
+## 设备与功能
+
+| 设备 | 主要功能 | 使用与安装 |
 | --- | --- | --- |
-| **TC1 智能排插（A1 硬件版本）** | 六路插座控制、功率与电量统计、定时、童锁 | [免拆刷机](https://phicomm-io.github.io/guides/tc1-no-disassembly.html) · [有线刷机与恢复](https://phicomm-io.github.io/guides/tc1-flash.html) · [使用](https://phicomm-io.github.io/guides/tc1-guide.html) |
-| **M1 空气检测仪** | 温湿度、PM2.5、甲醛、屏幕设置与净化器联动；配套开源主控可扩展颗粒物详情、屏幕 CO₂ 与音乐闹钟 | [免拆刷机](https://phicomm-io.github.io/guides/m1-no-disassembly.html) · [有线刷机与恢复](https://phicomm-io.github.io/guides/a1-m1-flash.html) · [使用](https://phicomm-io.github.io/guides/m1-guide.html) |
-| **A1 空气净化器** | 风机调速、自动模式、滤芯统计、触摸面板、RGB 灯环、夜间模式与多检测仪联动；另有新风版固件 | [免拆刷机](https://phicomm-io.github.io/guides/a1-no-disassembly.html) · [有线刷机与恢复](https://phicomm-io.github.io/guides/a1-m1-flash.html) · [使用](https://phicomm-io.github.io/guides/a1-guide.html) |
-| **DAIKIN 大金空气检测仪** | PM2.5、PM10、CO₂、温湿度、TVOC 与可选甲醛，支持 A1 联动 | [BRY88AB151K 原厂 OTA 刷机](https://phicomm-io.github.io/guides/daikin-stock-ota.html) · [BRY88AX151K 安装与使用](https://phicomm-io.github.io/guides/daikin-guide.html) |
+| TC1 智能排插（A1 硬件版本） | 六路开关、功率与电量、定时、童锁 | [使用][tc1] · [免拆安装][tc1-flash] |
+| M1 空气检测仪 | PM2.5、甲醛、温湿度、屏幕与 A1 联动；配套开源主控可扩展颗粒物详情、CO₂ 显示和音乐 | [使用][m1] · [免拆安装][m1-flash] |
+| A1 空气净化器 | 风机、自动模式、滤芯、灯环、夜间模式与多检测仪联动；另有新风版 | [使用][a1] · [有线安装][a1-flash] |
+| DAIKIN 大金空气检测仪 | PM2.5、PM10、CO₂、温湿度、TVOC 与可选甲醛，支持 A1 联动 | [使用与安装][daikin] · [BRY88AB151K 原厂 OTA][daikin-flash] |
 
-**TC1 的 A1 硬件版本与 A1 空气净化器是不同产品，固件不能混用。** TC1 A2 尚不在当前支持范围内。M1 和 A1 空气净化器适用于原装 EMW3080B / MK3080B 模组；大金教程对应 ESP32 / 4 MB Flash 设备，不能推定其他型号兼容。免拆刷机是否适用，需先核对各教程的原厂版本与前提。
+TC1 的 A1 硬件版本与 A1 空气净化器是不同产品，固件不能混用。当前不支持 TC1 A2。M1 / A1 教程适用于原装 EMW3080B / MK3080B 模组；大金教程适用于文档列出的 ESP32 / 4 MB Flash 设备。
 
-## M1 开源传感器主控
+M1 的 Wi-Fi 模块与传感器主控独立升级。[开源传感器主控][mcu]采用 **GPL-3.0**，推荐用于原厂 **11.x** 主控；原厂 **17.1.2.3 / 17.x** 差异较大，尚待分析，暂不建议迁移。普通 Wi-Fi OTA 不会更新主控，基本空气读数也不要求另刷主控。详见[主控说明][mcu-guide]。
 
-M1 内部有两颗分别升级的 MCU：**EMW3080 Wi-Fi MCU**负责联网与网页，**ATSAMD20G18A 传感器主控**负责与机内传感器通信，以及屏幕、按键和蜂鸣器。我们为后者提供采用 **MIT 许可**的[开源主控固件](https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20)。
+## 安装升级
 
-在原有传感器读数基础上，开源主控增加：
+先阅读[刷机前准备][prep]，按机型安装，再通过[快速开始][quick]配网。只在局域网使用时，直接访问设备网页即可；远程管理可[接入 IoTCloud][cloud]，也可[自行部署][deploy]。
 
-- **颗粒物详情**：读取 PM1.0 / PM2.5 / PM10、六档累计颗粒数和原始传感器帧；配套 Wi-Fi v0.9.27 可直接在网页查看。
-- **实体屏幕显示 CO₂**：可替换原数字位置或交替显示，需要另接 CO₂ 传感器并提供有效数据，原机不会因此自动获得 CO₂ 测量能力。
-- **提示音与音乐闹钟**：四种提示音、自定义 RTTTL 单音音乐，支持写入、读回、播放、停止与保存。
-- **诊断与调试**：传感器健康状态、显示缓存、屏幕段码与蜂鸣器调试，以及阈值设置修复。
+**[现有 0.9.x 下载][downloads] · [更新教程][update] · [在线演示][demos] · [本地直连][local]**
 
-当前主控发布为 **v0.9.4 开发预览**。不同功能需要对应的主控版本与能力，网页新功能还需配套 Wi-Fi 固件。**普通 Wi-Fi OTA 不会更新传感器主控。** 为降低新手误刷风险，主控没有 WebUI 上传入口；请使用电脑脚本，通过 API 单独升级。基本温湿度、PM2.5、甲醛读数无需为此额外刷主控。
+**v1.0 正在开发，尚未发布。** 计划包括双语界面、配置备份与迁移恢复、M1 双击和外部在线 CO₂ / 通用 Wi-Fi 数值显示、PM2.5 稳定处理、默认关闭的甲醛 / PM2.5 独立蜂鸣报警开关，以及独立的大金 `hub` 中枢版本。下载区继续提供已有 0.9.x 制品，功能与版本条件以发布说明为准。
 
-**[功能与版本条件](https://phicomm-io.github.io/guides/m1-mcu-firmware.html) · [主控 API 升级教程](https://phicomm-io.github.io/guides/m1-mcu-update.html) · [主控发布与下载](https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20/releases)**
+## 常见问题
 
-## 从哪里开始
+[故障排查][troubleshooting]涵盖配网、灯光提示、MQTT 和恢复。反馈时请写明机型、联网固件版本、M1 主控版本和复现步骤，并去掉密码、令牌等信息。
 
-固件免费，无需原厂云服务。首次安装先阅读[刷机前准备](https://phicomm-io.github.io/guides/flash-prep.html)，再按型号下载固件并依照教程刷入。安装后通过[快速开始](https://phicomm-io.github.io/guides/quick-start.html)完成配网，用浏览器访问设备即可进行本地控制，不需要部署管理平台。
+交流：QQ 群 **1021750178** · [加入群聊][qq] · [提交问题][issues]
 
-- **只在家里使用**：直接访问设备网页，或使用[本地设备管理](https://phicomm-io.github.io/local/)。
-- **远程集中管理**：按[接入 IotCloud](https://phicomm-io.github.io/guides/iotcloud-connect.html)选择节点、注册并配置设备；两个节点的账号和数据独立。
-- **智能家居与自动化**：配置 [MQTT、Home Assistant 与设备联动](https://phicomm-io.github.io/guides/mqtt-link.html)。
-- **已经安装社区固件**：查看[固件更新](https://phicomm-io.github.io/guides/firmware-update.html)与 [Release Log / 跨版本升级差异](https://phicomm-io.github.io/guides/release-log.html?view=compare)。
+## 参与开发
 
-## 项目组成
+| 项目 | 内容 |
+| --- | --- |
+| [设备固件][firmware] | TC1、M1、A1 与 DAIKIN 固件、构建和使用指南 |
+| [开发文档][protocols] | HTTP / MQTT、主控协议、配置兼容性与测试向量，中英文集中维护 |
+| [统一前端][frontend] | 设备 WebUI、IoTCloud 与在线演示 |
+| [IoTCloud 平台][platform] | MQTT 接入、账户管理与部署 |
+| [M1 传感器主控][mcu] | 传感器、屏幕、按键与蜂鸣器，GPL-3.0 |
+| [公开网站][website] | 安装使用文档、下载与版本归档 |
 
-| 项目 | 负责内容 | 公开情况 |
-| --- | --- | --- |
-| [社区固件](https://github.com/phicomm-io/phicomm-community-firmware) | TC1、M1、A1、DAIKIN 联网固件、构建脚本与设备文档 | 源码仓库私有；固件与文档从项目主页获取 |
-| [M1 开源主控](https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20) | ATSAMD20G18A 传感器主控固件、协议分析、升级工具与验证记录 | 公开，MIT 许可；独立开发预览发布 |
-| [统一前端](https://github.com/phicomm-io/phicomm-community-frontend) | 设备 WebUI、平台管理界面与演示 | 公开；固件使用锁定提交的前端 Release |
-| [管理平台](https://github.com/phicomm-io/phicomm-community-mqtt) | IotCloud / TMCP 平台服务、MQTT 接入与部署配置 | 公开 |
-| [公开网站](https://github.com/phicomm-io/phicomm-io.github.io) | 使用文档、在线演示、固件下载与历史版本归档 | 公开 |
+从[贡献指南](https://github.com/phicomm-io/.github/blob/main/CONTRIBUTING.md)和[路线图](https://github.com/phicomm-io/.github/blob/main/profile/ROADMAP.md)开始。各组件许可见对应仓库，第三方代码保留原许可。项目由社区维护，与原厂无隶属关系。
 
-## 项目路线图
-
-已具备本地控制、MQTT / Home Assistant 接入、IotCloud、签名 OTA 与固件归档、跨版本更新说明，以及 M1 开源传感器主控。接下来继续完善设备兼容性与长期稳定性、国际化、升级恢复和自动化验收；DC1、TC1 A2 仍为后续支持方向。
-
-具体任务见[公开 Project 路线图](https://github.com/orgs/phicomm-io/projects/3)与[文字版路线图](https://github.com/phicomm-io/.github/blob/main/profile/ROADMAP.md)。不承诺交付日期；软件功能、正式发布和实机验收分别记录，以各版本说明为准。
-
-感谢上游项目、SDK 提供方和社区贡献者。各组件的版权及授权以对应项目说明为准，M1 主控的 MIT 许可不代表其他仓库采用同一许可。本项目由社区维护，与原厂无隶属关系。
+[devices]: https://phicomm-io.github.io/#devices
+[install]: https://phicomm-io.github.io/#install
+[faq]: https://phicomm-io.github.io/#faq
+[develop]: https://phicomm-io.github.io/#develop
+[downloads]: https://phicomm-io.github.io/#releases
+[demos]: https://phicomm-io.github.io/#demos
+[local]: https://phicomm-io.github.io/local/
+[tc1]: https://phicomm-io.github.io/guides/tc1-guide.html
+[tc1-flash]: https://phicomm-io.github.io/guides/tc1-no-disassembly.html
+[m1]: https://phicomm-io.github.io/guides/m1-guide.html
+[m1-flash]: https://phicomm-io.github.io/guides/m1-no-disassembly.html
+[a1]: https://phicomm-io.github.io/guides/a1-guide.html
+[a1-flash]: https://phicomm-io.github.io/guides/a1-m1-flash.html
+[daikin]: https://phicomm-io.github.io/guides/daikin-guide.html
+[daikin-flash]: https://phicomm-io.github.io/guides/daikin-stock-ota.html
+[prep]: https://phicomm-io.github.io/guides/flash-prep.html
+[quick]: https://phicomm-io.github.io/guides/quick-start.html
+[update]: https://phicomm-io.github.io/guides/firmware-update.html
+[cloud]: https://phicomm-io.github.io/guides/iotcloud-connect.html
+[deploy]: https://phicomm-io.github.io/guides/iotcloud-deploy.html
+[troubleshooting]: https://phicomm-io.github.io/guides/faq.html
+[mcu-guide]: https://phicomm-io.github.io/guides/m1-mcu-firmware.html
+[protocols]: https://phicomm-io.github.io/iotcloud-community-protocols/
+[firmware]: https://github.com/phicomm-io/iotcloud-community-firmware
+[frontend]: https://github.com/phicomm-io/iotcloud-community-frontend
+[platform]: https://github.com/phicomm-io/iotcloud-community-mqtt
+[mcu]: https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20
+[website]: https://github.com/phicomm-io/phicomm-io.github.io
+[issues]: https://github.com/phicomm-io/.github/issues
+[qq]: https://qm.qq.com/q/9L150V85kk?from=tim

@@ -25,7 +25,7 @@ Read [Before flashing][prep], follow the guide for your model, then use [Quick s
 
 **[Existing 0.9.x downloads][downloads] · [Update guide][update] · [Demos][demos] · [Local connection][local]**
 
-**v1.0 is in development and has not been released.** Plans include bilingual interfaces, configuration backup and migration recovery, M1 double-click actions, external online CO₂ / generic Wi-Fi display data, steadier PM2.5 readings, separate formaldehyde / PM2.5 buzzer switches off by default and a separate DAIKIN `hub` variant. Downloads continue to provide existing 0.9.x artifacts. Check each release for its feature requirements.
+**v1.0 is in development and has not been released.** Development includes bilingual interfaces, configuration backup and migration recovery, independent user readings in M1's formaldehyde / PM2.5 positions with one double click switching both, steadier PM2.5 readings and separate formaldehyde / PM2.5 buzzer switches off by default. User readings can come from local sensors, TC1 power, A1 main-fan output percentage, DAIKIN or the API. The separate DAIKIN `hub` provides configuration through its embedded WebUI; its MQTT Broker, upstream client, Bemfa forwarding and HAP can run concurrently. Downloads continue to provide existing 0.9.x artifacts. Check each release for its feature requirements.
 
 ## Common questions
 

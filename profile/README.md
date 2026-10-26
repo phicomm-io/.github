@@ -23,11 +23,13 @@ M1 的 Wi-Fi 模块与传感器主控独立升级。[开源传感器主控][mcu]
 
 先阅读[刷机前准备][prep]，按机型安装，再通过[快速开始][quick]配网。只在局域网使用时，直接访问设备网页即可；远程管理可[接入 IoTCloud][cloud]，也可[自行部署][deploy]。
 
-**[v1.0.0-rc 候选版][firmware-rc] · [0.9.x 历史下载][downloads] · [更新教程][update] · [在线演示][demos] · [本地直连][local]**
+**[v1.0.0-rc.1 候选版][firmware-rc] · [0.9.x 历史下载][downloads] · [更新教程][update] · [在线演示][demos] · [本地直连][local]**
 
-**v1.0.0-rc 为预发布候选版，稳定通道仍为 v0.9.27。** 提供中英文界面、配置备份恢复、M1 两个显示区的独立用户读数与双击整体切换、数字与九段色灯配置、PM2.5 稳定处理，以及默认关闭的甲醛 / PM2.5 独立蜂鸣报警。用户读数支持本机与其他在线传感器、TC1 功率、A1 主风机输出百分比、大金和 API。
+**v1.0.0-rc.1 为预发布候选版，稳定通道仍为 v0.9.27。** 提供中英文界面、配置备份恢复、M1 两个显示区的独立用户读数与双击整体切换、数字与九段色灯配置、PM2.5 稳定处理，以及默认关闭的甲醛 / PM2.5 独立蜂鸣报警。用户读数支持本机与其他在线传感器、TC1 功率、A1 主风机输出百分比、大金和 API。
 
-大金 `hub` 中枢版通过自带 WebUI 配置本地账户、MQTT Broker、上游客户端和巴法云转发，可接入局域网设备与 Home Assistant。Apple 家庭采用实验性 HomeKit HAP 桥接，尚未完成真机验收；当前不包含 Matter。另见 [IoTCloud 平台候选版][platform-rc]，具体功能与版本条件以发布说明为准。
+RC.1 将在线读数统一为设备与字段接口，包含名称、数值类型、单位、有效性与新鲜度；M1 按字段选择来源。旧联网 RC 已弃用且对应接口不兼容，请同步更新来源设备、M1 接收端和前端；独立 M1 主控候选版不受影响。
+
+大金 `hub` 中枢版通过自带 WebUI 配置本地账户、MQTT Broker、上游客户端和巴法云转发，可接入局域网设备与 Home Assistant，设备网页密码可选。Apple 家庭采用实验性 HomeKit HAP 桥接，尚未完成真机验收；当前不包含 Matter。另见 [IoTCloud 平台候选版][platform-rc]，具体功能与版本条件以发布说明为准。
 
 ## 常见问题
 
@@ -53,7 +55,7 @@ M1 的 Wi-Fi 模块与传感器主控独立升级。[开源传感器主控][mcu]
 [faq]: https://phicomm-io.github.io/#faq
 [develop]: https://phicomm-io.github.io/#develop
 [downloads]: https://phicomm-io.github.io/#releases
-[firmware-rc]: https://github.com/phicomm-io/iotcloud-community-firmware/releases/tag/v1.0.0-rc
+[firmware-rc]: https://github.com/phicomm-io/iotcloud-community-firmware/releases/tag/v1.0.0-rc.1
 [mcu-rc]: https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20/releases/tag/v1.0.0-rc
 [platform-rc]: https://github.com/phicomm-io/iotcloud-community-mqtt/releases/tag/v1.0.0-rc.1
 [demos]: https://phicomm-io.github.io/#demos

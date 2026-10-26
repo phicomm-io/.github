@@ -23,11 +23,13 @@ M1 Wi-Fi firmware and its sensor controller update separately. The [open-source 
 
 Read [Before flashing][prep], follow the guide for your model, then use [Quick start][quick] for Wi-Fi setup. A local device page is sufficient for LAN use. For remote management, [connect to IoTCloud][cloud] or [host your own instance][deploy].
 
-**[v1.0.0-rc candidate][firmware-rc] · [0.9.x historical downloads][downloads] · [Update guide][update] · [Demos][demos] · [Local connection][local]**
+**[v1.0.0-rc.1 candidate][firmware-rc] · [0.9.x historical downloads][downloads] · [Update guide][update] · [Demos][demos] · [Local connection][local]**
 
-**v1.0.0-rc is a prerelease candidate; the stable channel remains on v0.9.27.** It includes Chinese / English interfaces, configuration backup and restore, independent user readings in both M1 display areas with one double press switching both, settings for number formats and nine lamp segments, steadier PM2.5 readings and separate formaldehyde / PM2.5 buzzer switches off by default. User readings support local and other online sensors, TC1 power, A1 main-fan output percentage, DAIKIN and the API.
+**v1.0.0-rc.1 is a prerelease candidate; the stable channel remains on v0.9.27.** It includes Chinese / English interfaces, configuration backup and restore, independent user readings in both M1 display areas with one double press switching both, settings for number formats and nine lamp segments, steadier PM2.5 readings and separate formaldehyde / PM2.5 buzzer switches off by default. User readings support local and other online sensors, TC1 power, A1 main-fan output percentage, DAIKIN and the API.
 
-The DAIKIN `hub` variant configures local accounts, its MQTT Broker, upstream client and Bemfa forwarding through the embedded WebUI. LAN devices and Home Assistant can connect directly. Apple Home uses experimental HomeKit HAP bridging and still awaits physical-device acceptance; Matter is not included. See the [IoTCloud platform candidate][platform-rc] and check each release for its feature requirements.
+RC.1 publishes readings through a common device-and-field interface, including names, numeric types, units, validity and freshness; M1 selects fields as sources. The former Wi-Fi RC is deprecated and its corresponding interfaces are incompatible. Update producers, M1 receivers and their frontend together; the separate M1 controller candidate is unaffected.
+
+The DAIKIN `hub` variant configures local accounts, its MQTT Broker, upstream client and Bemfa forwarding through the embedded WebUI. LAN devices and Home Assistant can connect directly; the device Web password is optional. Apple Home uses experimental HomeKit HAP bridging and still awaits physical-device acceptance; Matter is not included. See the [IoTCloud platform candidate][platform-rc] and check each release for its feature requirements.
 
 ## Common questions
 
@@ -53,7 +55,7 @@ Start with the [contribution guide](https://github.com/phicomm-io/.github/blob/m
 [faq]: https://phicomm-io.github.io/en/#faq
 [develop]: https://phicomm-io.github.io/en/#develop
 [downloads]: https://phicomm-io.github.io/en/#releases
-[firmware-rc]: https://github.com/phicomm-io/iotcloud-community-firmware/releases/tag/v1.0.0-rc
+[firmware-rc]: https://github.com/phicomm-io/iotcloud-community-firmware/releases/tag/v1.0.0-rc.1
 [mcu-rc]: https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20/releases/tag/v1.0.0-rc
 [platform-rc]: https://github.com/phicomm-io/iotcloud-community-mqtt/releases/tag/v1.0.0-rc.1
 [demos]: https://phicomm-io.github.io/en/#demos

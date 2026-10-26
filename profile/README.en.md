@@ -17,15 +17,17 @@ Keep TC1 power strips, M1 air quality monitors, A1 air purifiers and documented 
 
 The TC1 A1 hardware revision and the A1 purifier are different products. Their images are not interchangeable. TC1 A2 is unsupported. M1 / A1 guides target original EMW3080B / MK3080B modules; DAIKIN guides target the listed ESP32 devices with 4 MB Flash.
 
-M1 Wi-Fi firmware and its sensor controller update separately. The [open-source controller][mcu] uses **GPL-3.0** and is recommended for stock **11.x** controllers. Stock **17.1.2.3 / 17.x** differs substantially and needs further analysis; migration is currently discouraged. Ordinary Wi-Fi OTA does not update the sensor controller. Basic air readings do not require this extra update. See the [controller guide][mcu-guide].
+M1 Wi-Fi firmware and its sensor controller update separately. The [open-source controller][mcu] uses **GPL-3.0** and is recommended for stock **11.x** controllers. Stock **17.1.2.3 / 17.x** differs substantially and needs further analysis; migration is currently discouraged. Ordinary Wi-Fi OTA does not update the sensor controller. Basic air readings do not require this extra update. See the [controller guide][mcu-guide] and [controller candidate][mcu-rc].
 
 ## Install and update
 
 Read [Before flashing][prep], follow the guide for your model, then use [Quick start][quick] for Wi-Fi setup. A local device page is sufficient for LAN use. For remote management, [connect to IoTCloud][cloud] or [host your own instance][deploy].
 
-**[Existing 0.9.x downloads][downloads] · [Update guide][update] · [Demos][demos] · [Local connection][local]**
+**[v1.0.0-rc candidate][firmware-rc] · [0.9.x historical downloads][downloads] · [Update guide][update] · [Demos][demos] · [Local connection][local]**
 
-**v1.0 is in development and has not been released.** Development includes bilingual interfaces, configuration backup and migration recovery, independent user readings in M1's formaldehyde / PM2.5 positions with one double click switching both, steadier PM2.5 readings and separate formaldehyde / PM2.5 buzzer switches off by default. User readings can come from local sensors, TC1 power, A1 main-fan output percentage, DAIKIN or the API. The separate DAIKIN `hub` provides configuration through its embedded WebUI; its MQTT Broker, upstream client, Bemfa forwarding and HAP can run concurrently. Downloads continue to provide existing 0.9.x artifacts. Check each release for its feature requirements.
+**v1.0.0-rc is a prerelease candidate; the stable channel remains on v0.9.27.** It includes Chinese / English interfaces, configuration backup and restore, independent user readings in both M1 display areas with one double press switching both, settings for number formats and nine lamp segments, steadier PM2.5 readings and separate formaldehyde / PM2.5 buzzer switches off by default. User readings support local and other online sensors, TC1 power, A1 main-fan output percentage, DAIKIN and the API.
+
+The DAIKIN `hub` variant configures local accounts, its MQTT Broker, upstream client and Bemfa forwarding through the embedded WebUI. LAN devices and Home Assistant can connect directly. Apple Home uses experimental HomeKit HAP bridging and still awaits physical-device acceptance; Matter is not included. See the [IoTCloud platform candidate][platform-rc] and check each release for its feature requirements.
 
 ## Common questions
 
@@ -51,6 +53,9 @@ Start with the [contribution guide](https://github.com/phicomm-io/.github/blob/m
 [faq]: https://phicomm-io.github.io/en/#faq
 [develop]: https://phicomm-io.github.io/en/#develop
 [downloads]: https://phicomm-io.github.io/en/#releases
+[firmware-rc]: https://github.com/phicomm-io/iotcloud-community-firmware/releases/tag/v1.0.0-rc
+[mcu-rc]: https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20/releases/tag/v1.0.0-rc
+[platform-rc]: https://github.com/phicomm-io/iotcloud-community-mqtt/releases/tag/v1.0.0-rc
 [demos]: https://phicomm-io.github.io/en/#demos
 [local]: https://phicomm-io.github.io/local/
 [tc1]: https://phicomm-io.github.io/guides/en/tc1-guide.html

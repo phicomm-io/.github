@@ -10,7 +10,7 @@ TC1 A1 硬件版本、M1、A1 与文档列出的 DAIKIN 设备支持本地网页
 
 v1.0.0-rc 为预发布版本，供体验与测试。按机型选择镜像，并先阅读对应发布说明。
 
-[联网固件候选版](https://github.com/phicomm-io/iotcloud-community-firmware/releases/tag/v1.0.0-rc) · [M1 主控候选版](https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20/releases/tag/v1.0.0-rc) · [IoTCloud 平台候选版](https://github.com/phicomm-io/iotcloud-community-mqtt/releases/tag/v1.0.0-rc) · [0.9.x 历史下载](https://phicomm-io.github.io/#releases)
+[联网固件候选版](https://github.com/phicomm-io/iotcloud-community-firmware/releases/tag/v1.0.0-rc) · [M1 主控候选版](https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20/releases/tag/v1.0.0-rc) · [IoTCloud 平台候选版](https://github.com/phicomm-io/iotcloud-community-mqtt/releases/tag/v1.0.0-rc.1) · [0.9.x 历史下载](https://phicomm-io.github.io/#releases)
 
 | 方向 | 候选版内容 |
 | --- | --- |

@@ -55,7 +55,7 @@ M1 的 Wi-Fi 模块与传感器主控独立升级。[开源传感器主控][mcu]
 [downloads]: https://phicomm-io.github.io/#releases
 [firmware-rc]: https://github.com/phicomm-io/iotcloud-community-firmware/releases/tag/v1.0.0-rc
 [mcu-rc]: https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20/releases/tag/v1.0.0-rc
-[platform-rc]: https://github.com/phicomm-io/iotcloud-community-mqtt/releases/tag/v1.0.0-rc
+[platform-rc]: https://github.com/phicomm-io/iotcloud-community-mqtt/releases/tag/v1.0.0-rc.1
 [demos]: https://phicomm-io.github.io/#demos
 [local]: https://phicomm-io.github.io/local/
 [tc1]: https://phicomm-io.github.io/guides/tc1-guide.html

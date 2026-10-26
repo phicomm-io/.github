@@ -55,7 +55,7 @@ Start with the [contribution guide](https://github.com/phicomm-io/.github/blob/m
 [downloads]: https://phicomm-io.github.io/en/#releases
 [firmware-rc]: https://github.com/phicomm-io/iotcloud-community-firmware/releases/tag/v1.0.0-rc
 [mcu-rc]: https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20/releases/tag/v1.0.0-rc
-[platform-rc]: https://github.com/phicomm-io/iotcloud-community-mqtt/releases/tag/v1.0.0-rc
+[platform-rc]: https://github.com/phicomm-io/iotcloud-community-mqtt/releases/tag/v1.0.0-rc.1
 [demos]: https://phicomm-io.github.io/en/#demos
 [local]: https://phicomm-io.github.io/local/
 [tc1]: https://phicomm-io.github.io/guides/en/tc1-guide.html

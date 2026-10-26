@@ -10,7 +10,7 @@ TC1 A1 hardware, M1, A1 and the documented DAIKIN devices support local WebUI, M
 
 v1.0.0-rc is a prerelease for testing. Choose an image for your device and read its release notes first.
 
-[Device firmware candidate](https://github.com/phicomm-io/iotcloud-community-firmware/releases/tag/v1.0.0-rc) · [M1 controller candidate](https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20/releases/tag/v1.0.0-rc) · [IoTCloud platform candidate](https://github.com/phicomm-io/iotcloud-community-mqtt/releases/tag/v1.0.0-rc) · [0.9.x historical downloads](https://phicomm-io.github.io/en/#releases)
+[Device firmware candidate](https://github.com/phicomm-io/iotcloud-community-firmware/releases/tag/v1.0.0-rc) · [M1 controller candidate](https://github.com/phicomm-io/phicomm_m1_mcu_atsamd20/releases/tag/v1.0.0-rc) · [IoTCloud platform candidate](https://github.com/phicomm-io/iotcloud-community-mqtt/releases/tag/v1.0.0-rc.1) · [0.9.x historical downloads](https://phicomm-io.github.io/en/#releases)
 
 | Area | Candidate features |
 | --- | --- |
